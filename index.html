@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Preventing pasting into an input field</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <h1>Preventing paste into an input field</h1>
+<p>This example demonstrates how to stop a user from pasting content into a HTML input form field using JavaScript. Check the HTML and JavaScript panes for more details or scroll to the bottom to find a code example.</p>
+
+<div><label for="paste-ok">✅ You can paste in this field as normal</label></div>
+<div><input type="text" id="paste-ok" /></div>
+
+<div><label for="paste-no">🛑 You can't paste in this field: this uses the attribute <code>onpaste</code></label></div>
+<div><input type="text" id="paste-no" onpaste="return false" />
+</div>
+
+<div><label for="paste-no-event">🛑 You can't paste in this field either: this uses an event listener attached to the input field</label></div>
+<div><input type="text" id="paste-no-event" />
+</div>
+
+<p>📌 Works in modern browsers. The paste event is part of the Clipboard API. Check out the <a href="https://caniuse.com/#feat=clipboard">caniuse stats</a>.</p>
+
+<h2>Code Example</h2>
+<pre><code>&lt;input type="text" id="paste-no-event" /&gt;
+&lt;script&gt;
+  const pasteBox = document.getElementById("paste-no-event");
+  pasteBox.onpaste = e => {
+    e.preventDefault();
+    return false;
+  };
+&lt;/script&gt;</code></pre>
+  
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
